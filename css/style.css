@@ -1,0 +1,57 @@
+.well {
+	color: #111111;
+}
+.row{
+    margin-bottom: 10px;
+}
+.intro {
+	padding-top:100px;
+}
+#headConfirm {
+	text-align:center;
+}
+span {
+	color: #D9534F;
+	font-weight: bold;
+}
+.show {
+	display:block !important;
+}
+.hidden {
+	display:none !important;
+	visibility: hidden !important;
+}
+.control-label {
+	margin-top:5px;
+}
+img.displayed {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+#divZone{
+	font-size: 18px;
+	font-weight: bold;
+}
+dl {
+    text-align: left;
+    font-size: 1.5em;
+}
+  dt {
+    font-style: italic;
+    color: #219ab3;
+}
+  dd {
+    margin: 0;
+    padding: 0 0 0.5em 1em;
+  }
+h1{
+    margin-bottom: 15px;
+}
+span {
+    color: #fff;
+    font-weight: bold;
+}
+#pPrice{
+    font-size: 1em;
+}
