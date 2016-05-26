@@ -95,7 +95,10 @@ while($res = $req->fetch()){
         <div class="col-md-12 text-left">1. CLIQUEZ SUR UN BLOC</div>
     </div>
     <div class="row">
-        <div class="col-md-8 text-left"><h4>Places disponibles*</h4></div>
+        <div class="col-md-8 text-left"><h4>Places disponibles
+            <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></button>
+            </h4>
+        </div>
         <div class="col-md-4" id="pBloc"></div>
     </div>
     <div class="row">
