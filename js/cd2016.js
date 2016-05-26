@@ -40,7 +40,8 @@ function selectBloc(bloc) {
                     priceUnit = data.price_abn;
                     priceUnitHalf = data.price_abn_half;
                 } else {
-                    $("#pPrice").html("Adulte: " + data.price + ".00 € --- Enfant: " + data.price_half + ".00 €");
+                    $("#pPriceAd").html(data.price + ".00 €");
+                    $("#pPriceEn").html(data.price_half + ".00 €");
                     priceUnit = data.price;
                     priceUnitHalf = data.price_half;
                 }
