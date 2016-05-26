@@ -35,16 +35,14 @@ function selectBloc(bloc) {
             } else {
                 $("#pZone").html(data.zone);
                 $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>" + data.nb + "</span></button>");
-                if (abn) {
-                    $("#pPrice").html("Adulte: " + data.price_abn + ".00 € --- Enfant: " + data.price_abn_half + ".00 €");
-                    priceUnit = data.price_abn;
-                    priceUnitHalf = data.price_abn_half;
-                } else {
-                    $("#pPriceAd").html(data.price + ".00 €");
-                    $("#pPriceEn").html(data.price_half + ".00 €");
-                    priceUnit = data.price;
-                    priceUnitHalf = data.price_half;
-                }
+                $("#pPriceAbAd").html(data.price_abn + ".00 €");
+                $("#pPriceAbEn").html(data.price_abn_half + ".00 €");
+                //priceUnit = data.price_abn;
+                //priceUnitHalf = data.price_abn_half;
+                $("#pPriceAd").html(data.price + ".00 €");
+                $("#pPriceEn").html(data.price_half + ".00 €");
+                priceUnit = data.price;
+                priceUnitHalf = data.price_half;
                 $("#inputPlaces").val(1);
                 $("#inputPlacesHalf").val(0);
                 $("#inputTotal").val(priceUnit);
@@ -95,6 +93,7 @@ $(document).ready(function () {
         $('.navbar-toggle:visible').click();
     });
 //////////////////////////////////////////////////////////////////
+$('[data-toggle="tooltip"]').tooltip()
     $('#btnReserver').hide();
     lejour = $("#jour").text();
 /****************** click blocs*******************/
