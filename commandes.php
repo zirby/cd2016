@@ -20,62 +20,57 @@ if(isset($_SESSION['resId'])){
 }
 ?>
 <?php require 'inc/header.php'; ?>
-        <div class="row">
-            <div class="col-md-4 text-left">
-                <a href="<?= $index ?>" class="btn btn-primary btn-lg" title="<retour" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+<div class="row">
+    <div class="col-md-4 text-left">
+        <a href="<?= $index ?>" class="btn btn-primary btn-lg" title="<retour" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+    </div>
+    <div class="col-md-4">
+        <p style="text-align: center"><h1>Ma commande</h1></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 text-center">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Information</div>
+            <div class="panel-body">
+                <p><strong>Bonjour M<small>r</small>/M<small>me</small> <?= $_SESSION['auth']->lastname; ?></strong></p>
+                <p>Votre réservation a bien été enregistrée.</p>
+                <p></p>
+                <!--<p>Etant donné la proximité de l'événement et afin d'éviter d'éventuels retards postaux,vos tickets seront tenus à votre disposition aux guichets du COUNTRY HALL le jour de la rencontre à partir de 12 heures contre présentation de ce document et paiement de la somme ci-dessus.</p>-->
+                <p>Le montant de votre réservation devra être versé sur le compte:<br />
+                <b>a.s.b.l. AFT - Bruxelles</b><br />
+                <b>IBAN: BE84 0017 4289 2259 - BIC: GEBA BE BB</b><br />
+                avec en référence: <b><?= $_SESSION['jour']; ?> -  <?= $reservationId; ?> - <?= $_SESSION['auth']->lastname; ?></b></p>
+                <p>VEUILLEZ IMPRIMER CE DOCUMENT SVP<br />OU NOTER LE NUMERO DE RESERVATION</p>
+                <p>MERCI DE VOTRE COMMANDE</p>
+                <p class=" small text-primary"><b>Les places vous seront envoyées endéans les trois jours après votre paiement.</b></p>
+                <p class=" small text-danger"><b>Il n'y a pas de mail de confirmation. Il faut aller voir MES RESERVATIONS</b></p>
             </div>
-            <div class="col-md-4">
-                <p style="text-align: center"><h1>Ma commande</h1></p>
+            <div class="panel-footer text-center">
+                <a href="reservations.php"  class="btn btn-info btn-lg">Voir mes réservations</a>
             </div>
         </div>
-
-
-<div class="col-lg-12">
-<table class="table">
-    <thead>
-        <th>N°</th>
-        <th>Jour</th>
-        <th>Type</th>
-        <th>Bloc</th>
-        <th>Pl.Adulte</th>
-        <th>Pl.Enfant</th>
-        <th style="text-align: right;">Montant</th>
-    </thead>
-    <tbody>
-        <td style="text-align: left;"><?= $reservationId; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['jour']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['type']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeBloc']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeFullNb']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeHalfNb']; ?></td>
-        <td style="text-align: right;"><?= $_SESSION['priceTot']; ?> €</td>
-       
-    </tbody>
-</table>
-
-</div>
-<div id="divPaiement4" class="col-lg-12">
-    <p><strong>Bonjour M<small>r</small>/M<small>me</small> <?= $_SESSION['auth']->lastname; ?></strong></p>
-    <p>Votre réservation a bien été enregistrée.</p>
-    <p></p>
-    <p>Etant donné la proximité de l'événement et afin d'éviter d'éventuels retards postaux,vos tickets seront tenus à votre disposition aux guichets du COUNTRY HALL le jour de la rencontre à partir de 12 heures contre présentation de ce document et paiement de la somme ci-dessus.</p>
-     <!--<p>Le montant de votre réservation devra être versé sur le compte:<br />
-   <b>a.s.b.l. AFT - Bruxelles</b><br />
-    <b>IBAN: BE84 0017 4289 2259 - BIC: GEBA BE BB</b><br />
-    avec en référence: <b><?= $_SESSION['jour']; ?> -  <?= $reservationId; ?> - <?= $_SESSION['auth']->lastname; ?></b></p>-->
-
-</div>
-<!--<div id="divPaiement" class="col-lg-12">
-    <div class="alert alert-danger" role="alert">
-        <p><strong>Celui-ci doit impérativement nous parvenir endéans les 3 jours, faute de quoi votre réservation sera AUTOMATIQUEMENT annulée.</strong></p>
     </div>
-</div>-->
-<div id="divPaiement3" class="col-lg-12">
-    <p>VEUILLEZ IMPRIMER CE DOCUMENT SVP<br />
-    OU NOTER LE NUMERO DE RESERVATION</p>
-    <a href="reservations.php"  class="btn btn-info btn-lg">Voir mes réservations</a>
-    <p></p>
-    <!--<p>Les tickets seront alors expédiés à votre adresse endéans les 8 jours.</p>-->
-    <p>MERCI DE VOTRE COMMANDE</p></div>
+    <div class="col-md-6 text-left">
+        <div class="panel panel-success">
+            <div class="panel-heading">Commande : </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr><th>N°</th><th><?= $reservationId; ?></th></tr>
+                    <tr><th>Bloc</th><th><?= $_SESSION['placeBloc']; ?></th></tr>
+                    <tr><th>Jour</th><th><?= $_SESSION['jour']; ?></th></tr>
+                    <tr><th><?= $_SESSION['placeFullNb']; ?></th><td>place(s) adulte</td></tr>
+                    <tr><th><?= $_SESSION['placeHalfNb']; ?></th><td>place(s) enfant</td></tr>
+                    <tr><th>Abonnement 3 jours</th><th></th></tr>
+                    <tr><th><?= $_SESSION['placeAbnFullNb']; ?></th><td>abonnement(s) adulte</td></tr>
+                    <tr><th><?= $_SESSION['placeAbnHalfNb']; ?></th><td>abonnement(s) enfant</td></tr>
+               </table>
+            </div>
+            <div class="panel-footer text-right">
+                Pour un total de: <b><?= $_SESSION['priceTot']; ?> €</b>
+            </div>
+        </div>
+    </div>
 
+</div>
 <?php require 'inc/footer.php';

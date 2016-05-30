@@ -41,43 +41,16 @@ $index = "index".$j.".php";
                     <tr><th><?= $_SESSION['jour']; ?></th><th><?= $_SESSION['placeBloc']; ?></th></tr>
                     <tr><th><?= $_SESSION['placeFullNb']; ?></th><td>place(s) adulte</td></tr>
                     <tr><th><?= $_SESSION['placeHalfNb']; ?></th><td>place(s) enfant</td></tr>
-                    <tr><th><?= $_SESSION['placeFullNb']; ?></th><td>abonnement(s) adulte</td></tr>
-                    <tr><th><?= $_SESSION['placeHalfNb']; ?></th><td>abonnement(s) enfant</td></tr>
+                    <tr><th><?= $_SESSION['placeAbnFullNb']; ?></th><td>abonnement(s) adulte</td></tr>
+                    <tr><th><?= $_SESSION['placeAbnHalfNb']; ?></th><td>abonnement(s) enfant</td></tr>
                </table>
             </div>
             <div class="panel-footer text-right">
                 Pour un total de: <b><?= $_SESSION['priceTot']; ?> €</b>
             </div>
         </div>
-
-        <h4></h4>
-        
     </div>
-<!--
-<div class="col-lg-12">
-<table class="table">
-    <thead>
-        <th>N°</th>
-        <th>Jour</th>
-        <th>Type</th>
-        <th>Bloc</th>
-        <th>Pl.Adulte</th>
-        <th>Pl.Enfant</th>
-        <th style="text-align: right;">Montant</th>
-    </thead>
-    <tbody>
-        <td style="text-align: left;"></td>
-        <td style="text-align: left;"><?= $_SESSION['jour']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['type']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeBloc']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeFullNb']; ?></td>
-        <td style="text-align: left;"><?= $_SESSION['placeHalfNb']; ?></td>
-        <td style="text-align: right;"><?= $_SESSION['priceTot']; ?> €</td>
-       
-    </tbody>
-</table>
-</div>
--->
+
 </div>
 
 
