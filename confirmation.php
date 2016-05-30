@@ -29,7 +29,7 @@ $index = "index".$j.".php";
                 <?= $_SESSION['auth']->country; ?><br><br>
             </div>
             <div class="panel-footer text-right">
-                <a href="#" role="button" class="btn btn-info">Modifier</a>
+                <a href="account.php" role="button" class="btn btn-info">Modifier</a>
             </div>
         </div>
     </div>

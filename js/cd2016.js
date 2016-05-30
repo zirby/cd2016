@@ -1,5 +1,7 @@
 var priceUnit = 0;
 var priceUnitHalf = 0;
+var priceAbn = 0;
+var priceAbnHalf = 0;
 var priceTot = 0;
 var placeDispo = 0;
 var placeZone = "";
@@ -7,6 +9,8 @@ var placeBloc = "";
 var placeNb = 0;
 var placeFullNb = 0;
 var placeHalfNb = 0;
+var placeAbnFullNb = 0;
+var placeAbnHalfNb = 0;
 var jour = "";
 var abn = false;
 var typeRes = "";
@@ -25,7 +29,11 @@ function selectBloc(bloc) {
                 $("#pZone").html(data.zone);
                 $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>complet</span></button>");
                 $("#pPrice").html("");
+                
                 $("#inputPlaces").val(0);
+                $("#inputPlacesHalf").val(0);
+                $("#inputPlacesAbn").val(0);
+                $("#inputPlacesAbnHalf").val(0);
                 $("#inputTotal").val(0);
                 placeBloc = data.bloc;
                 placeZone = data.zone;
@@ -35,16 +43,21 @@ function selectBloc(bloc) {
             } else {
                 $("#pZone").html(data.zone);
                 $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>" + data.nb + "</span></button>");
+                
                 $("#pPriceAbAd").html(data.price_abn + ".00 €");
                 $("#pPriceAbEn").html(data.price_abn_half + ".00 €");
-                //priceUnit = data.price_abn;
-                //priceUnitHalf = data.price_abn_half;
                 $("#pPriceAd").html(data.price + ".00 €");
                 $("#pPriceEn").html(data.price_half + ".00 €");
+                
+                priceAbn = data.price_abn;
+                priceAbnHalf = data.price_abn_half;
                 priceUnit = data.price;
                 priceUnitHalf = data.price_half;
+                
                 $("#inputPlaces").val(1);
                 $("#inputPlacesHalf").val(0);
+                $("#inputPlacesAbn").val(0);
+                $("#inputPlacesAbnHalf").val(0);
                 $("#inputTotal").val(priceUnit);
 
                 priceTot = priceUnit;
@@ -59,14 +72,40 @@ function selectBloc(bloc) {
     });
 }
 
-function doSum(nbPlace, pricePlace, nbPlaceHalf, pricePlaceHalf) {
-    if (nbPlace.length === 0)
-        nbPlace = 0;
-    if (nbPlaceHalf.length === 0)
-        nbPlaceHalf = 0;
+function doSum(nbPlace, pricePlace, nbPlaceHalf, pricePlaceHalf, nbPlaceAbn, pricePlaceAbn, nbPlaceAbnHalf, pricePlaceAbnHalf) {
+    if (nbPlace.length === 0)  nbPlace = 0;
+    if (nbPlaceHalf.length === 0)  nbPlaceHalf = 0;
+    if (nbPlaceAbn.length === 0)  nbPlaceAbn = 0;
+    if (nbPlaceAbnHalf.length === 0)  nbPlaceAbnHalf = 0;
+    
     full = parseInt(nbPlace) * parseInt(pricePlace);
     half = parseInt(nbPlaceHalf) * parseInt(pricePlaceHalf);
-    return full + half;
+    Abnfull = parseInt(nbPlaceAbn) * parseInt(pricePlaceAbn);
+    Abnhalf = parseInt(nbPlaceAbnHalf) * parseInt(pricePlaceAbnHalf);
+    return full + half + Abnfull + Abnhalf;
+}
+function printSum(priceUnit, priceUnitHalf, priceAbn, priceAbnHalf){
+        placeFullNb = ($("#inputPlaces").val()==="") ? 0 : $("#inputPlaces").val();
+        placeHalfNb = ($("#inputPlacesHalf").val()==="") ? 0 : $("#inputPlacesHalf").val();
+        placeAbnFullNb = ($("#inputPlacesAbn").val()==="") ? 0 : $("#inputPlacesAbn").val();
+        placeAbnHalfNb = ($("#inputPlacesAbnHalf").val()==="") ? 0 : $("#inputPlacesAbnHalf").val();
+        placeNb = parseInt(placeFullNb) + parseInt(placeHalfNb)+parseInt(placeAbnFullNb) + parseInt(placeAbnHalfNb);
+        
+        console.log(placeNb);
+        if(placeNb > 0){
+            if(placeNb > placeDispo){
+                $('#salleHelp').html("<div class='alert alert-danger' role='alert'>Trop de places<br /><em>(Too much tickets)</em></div>");
+                $('#btnReserver').hide();                
+            }else{
+                $('#salleHelp').html("");
+                $('#btnReserver').show();
+                priceTot = doSum(placeFullNb, priceUnit, placeHalfNb, priceUnitHalf, placeAbnFullNb, priceAbn, placeAbnHalfNb,priceAbnHalf);
+                $("#inputTotal").val(priceTot);            
+            }
+        }else{
+            $('#btnReserver').hide();
+            $("#inputTotal").val(0);  
+        }
 }
 
 $(document).ready(function () {
@@ -149,50 +188,10 @@ $("#bloc_a").click(function () {selectBloc("bloc_a");});
     $("#bloc_s").click(function () {selectBloc("bloc_s");});
     /**************************************************/
 
-    $('#inputPlaces').keyup(function () {
-        placeFullNb = ($("#inputPlaces").val()==="") ? 0 : $("#inputPlaces").val();
-        placeHalfNb = ($("#inputPlacesHalf").val()==="") ? 0 : $("#inputPlacesHalf").val();
-        placeNb = parseInt(placeFullNb) + parseInt(placeHalfNb);
-        
-        console.log(placeNb);
-        if(placeNb > 0){
-            if(placeNb > placeDispo){
-                $('#salleHelp').html("<div class='alert alert-danger' role='alert'>Trop de places<br /><em>(Too much tickets)</em></div>");
-                $('#btnReserver').hide();                
-            }else{
-                $('#salleHelp').html("");
-                $('#btnReserver').show();
-                priceTot = doSum(placeFullNb, priceUnit, placeHalfNb, priceUnitHalf);
-                $("#inputTotal").val(priceTot);            
-            }
-        }else{
-            $('#btnReserver').hide();
-            $("#inputTotal").val(0);  
-        }
-
-    });
-    
-    $('#inputPlacesHalf').keyup(function () {
-        placeFullNb = ($("#inputPlaces").val()==="") ? 0 : $("#inputPlaces").val();
-        placeHalfNb = ($("#inputPlacesHalf").val()==="") ? 0 : $("#inputPlacesHalf").val();
-        placeNb = parseInt(placeFullNb) + parseInt(placeHalfNb);
-        
-        console.log(placeNb);
-        if(placeNb > 0){
-            if(placeNb > placeDispo){
-                $('#salleHelp').html("<div class='alert alert-danger' role='alert'>Trop de places<br /><em>(Too much tickets)</em></div>");
-                $('#btnReserver').hide();                
-            }else{
-                $('#salleHelp').html("");
-                $('#btnReserver').show();
-                priceTot = doSum(placeFullNb, priceUnit, placeHalfNb, priceUnitHalf);
-                $("#inputTotal").val(priceTot);            
-            }
-        }else{
-            $('#btnReserver').hide();
-            $("#inputTotal").val(0);  
-        }
-    });
+    $('#inputPlaces').keyup(function () { printSum(priceUnit, priceUnitHalf, priceAbn, priceAbnHalf); });  
+    $('#inputPlacesHalf').keyup(function () { printSum(priceUnit, priceUnitHalf, priceAbn, priceAbnHalf); });
+    $('#inputPlacesAbn').keyup(function () { printSum(priceUnit, priceUnitHalf, priceAbn, priceAbnHalf); });  
+    $('#inputPlacesAbnHalf').keyup(function () { printSum(priceUnit, priceUnitHalf, priceAbn, priceAbnHalf); });
     
     $('#btnReserver').click(function () {
         if (abn) {
@@ -209,6 +208,8 @@ $("#bloc_a").click(function () {selectBloc("bloc_a");});
                 "priceTot": priceTot,
                 "placeFullNb": placeFullNb,
                 "placeHalfNb": placeHalfNb,
+                "placeAbnFullNb": placeAbnFullNb,
+                "placeAbnHalfNb": placeAbnHalfNb,
                 "placeBloc": placeBloc,
                 "placeType": typeRes
             },

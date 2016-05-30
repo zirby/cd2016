@@ -7,6 +7,8 @@ require_once 'inc/conn.php';
 unset($_SESSION['priceTot']);
 unset($_SESSION['placeFullNb']);
 unset($_SESSION['placeHalfNb']);
+unset($_SESSION['placeAbnFullNb']);
+unset($_SESSION['placeAbnHalfNb']);
 unset($_SESSION['placeBloc']);
 unset($_SESSION['type']);
 unset($_SESSION['resId']);
