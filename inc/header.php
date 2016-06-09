@@ -18,7 +18,7 @@ $index = "index".$j.".php";
     <meta name="author" content="">
 
     <title>CountryTickets.eu</title>
-
+    <link rel="icon" type="image/png" href="limg/Capella_16.png" />
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -52,7 +52,7 @@ $index = "index".$j.".php";
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="http://www.countrytickets.eu/?page_id=188">
-                    <i class="fa fa-play-circle"></i>  Countrytickets.eu - Réservation - Coupe Davis 2016
+                    <i class="fa fa-play-circle"></i>  Countrytickets.eu - Réservation
                 </a>
             </div>
 

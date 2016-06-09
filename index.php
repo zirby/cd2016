@@ -94,14 +94,14 @@ while($res = $req->fetch()){
 <div class="col-md-5">
 
     <div class="row">
-        <div class="col-md-12 text-left">1. CLIQUEZ SUR UN BLOC</div>
+        <div class="col-md-12 text-left"><em>1. CLIQUEZ SUR UN BLOC</em></div>
     </div>
     <div class="row">
         <div class="col-md-7 text-left"  data-toggle="tooltip" data-placement="top" title="le nombre de places peu changer en + ou en -"><h5>Places disponibles*</h5></div>
         <div class="col-md-5" id="pBloc"></div>
     </div>
     <div class="row">
-        <div class="col-md-12 text-left">2. INDIQUEZ LE NOMBRE DE PLACES</div>
+        <div class="col-md-12 text-left"><em>2. INDIQUEZ LE NOMBRE DE PLACES</em></div>
     </div>
     <div class="row">
         <div class="col-md-6 text-left"><h5>Adultes</h5></div>
@@ -114,12 +114,12 @@ while($res = $req->fetch()){
         <div class="col-md-2"><input id="inputPlacesHalf" type="text" class="form-control" value="0"></div>
     </div>
     <div class="row">
-        <div class="col-md-6 text-left"   data-toggle="tooltip" data-placement="top" title="les places sont garantie dans le boc"><h5>Abonnement Adulte*</h5></div>
+        <div class="col-md-6 text-left"   data-toggle="tooltip" data-placement="top" title="les places sont garanties dans le bloc"><h5>Abonnement Adulte*</h5></div>
         <div class="col-md-4" id="pPriceAbAd"></div>
         <div class="col-md-2"><input id="inputPlacesAbn" type="text" class="form-control" value="0"></div>
     </div>
     <div class="row">
-        <div class="col-md-6 text-left" data-toggle="tooltip" data-placement="top" title="les places sont garantie dans le boc"><h5>Abonnement Enfant*</h5></div>
+        <div class="col-md-6 text-left" data-toggle="tooltip" data-placement="top" title="les places sont garanties dans le bloc"><h5>Abonnement Enfant*</h5></div>
         <div class="col-md-4" id="pPriceAbEn"></div>
         <div class="col-md-2"><input id="inputPlacesAbnHalf" type="text" class="form-control" value="0"></div>
     </div>
