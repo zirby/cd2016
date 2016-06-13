@@ -39,11 +39,11 @@ if(isset($_SESSION['resId'])){
                 <!--<p>Etant donné la proximité de l'événement et afin d'éviter d'éventuels retards postaux,vos tickets seront tenus à votre disposition aux guichets du COUNTRY HALL le jour de la rencontre à partir de 12 heures contre présentation de ce document et paiement de la somme ci-dessus.</p>-->
                 <p>Le montant de votre réservation devra être versé sur le compte:<br />
                 <b>a.s.b.l. AFT - Bruxelles</b><br />
-                <b>IBAN: BE84 0017 4289 2259 - BIC: GEBA BE BB</b><br />
+                <b>IBAN: BE84 0017 4289 XXXX - BIC: GEBA BE BB</b><br />
                 avec en référence: <b><?= $_SESSION['jour']; ?> -  <?= $reservationId; ?> - <?= $_SESSION['auth']->lastname; ?></b></p>
-                <p>VEUILLEZ IMPRIMER CE DOCUMENT SVP<br />OU NOTER LE NUMERO DE RESERVATION</p>
+                <p>Vos tickets vous seront alors envoyés par voie postale endéans les 3 jours après votre paiement</p>
+                <p>***VEUILLEZ IMPRIMER CE DOCUMENT SVP***</p>
                 <p>MERCI DE VOTRE COMMANDE</p>
-                <p class=" small text-primary"><b>Les places vous seront envoyées endéans les trois jours après votre paiement.</b></p>
                 <p class=" small text-danger"><b>Il n'y a pas de mail de confirmation. Il faut aller voir MES RESERVATIONS</b></p>
             </div>
             <div class="panel-footer text-center">

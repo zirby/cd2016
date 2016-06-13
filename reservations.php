@@ -51,6 +51,6 @@ $index = "index".$j.".php";
         </tbody>
     </table>
 </div>
-<p class=" small text-primary"><b>A partir du 28/02, le montant des commandes est à payer au guichet le jour de la rencontre.</b></p>
+<!-- <p class=" small text-primary"><b>A partir du 28/02, le montant des commandes est à payer au guichet le jour de la rencontre.</b></p>-->
 
 <?php require 'inc/footer.php'; ?>
