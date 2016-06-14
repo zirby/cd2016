@@ -51,7 +51,7 @@ $index = "index".$j.".php";
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="http://www.countrytickets.eu/?page_id=188">
+                <a class="navbar-brand page-scroll" href="index.php">
                     <i class="fa fa-play-circle"></i>  Countrytickets.eu - Réservation
                 </a>
             </div>

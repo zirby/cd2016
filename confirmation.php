@@ -21,7 +21,8 @@ $index = "index".$j.".php";
 <div class="row">
     <div class="col-md-6 text-left">
         <div class="panel panel-info">
-            <div class="panel-heading">Envoyer à : </div>
+            <div class="panel-heading">
+            <span class="glyphicon glyphicon-envelope"></span>  Envoyer à : </div>
             <div class="panel-body">
                 <?= $_SESSION['auth']->firstname; ?>  <b><?= $_SESSION['auth']->lastname; ?></b><br>
                 <?= $_SESSION['auth']->address; ?><br>
@@ -35,7 +36,8 @@ $index = "index".$j.".php";
     </div>
     <div class="col-md-6 text-left">
         <div class="panel panel-success">
-            <div class="panel-heading">Commande : </div>
+            <div class="panel-heading">
+            <span class="glyphicon glyphicon-edit"></span>Commande : </div>
             <div class="panel-body">
                 <table class="table">
                     <tr><th><?= $_SESSION['jour']; ?></th><th><?= $_SESSION['placeBloc']; ?></th></tr>
