@@ -16,6 +16,7 @@ unset($_SESSION['resId']);
 $_SESSION['jour']="VEN04";
 
 // faire doDispo 
+//$org = 'HBC'; // id de l'organisateur
 $org = 'AFT'; // id de l'organisateur
 $jour = 'ven';
 $req = $pdo->prepare("SELECT * FROM cd16_blocs_".$jour );
